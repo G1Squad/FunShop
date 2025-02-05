@@ -63,9 +63,9 @@ flask run
 
 1. Skapa ett Jira-ärende
 I Jira, skapa ett nytt ärende. 
-Välj repository: G1Squad/FunShop
-Branch from: main
-Branch name: SF-XX-XX-feature-name T.ex. SF-10-23-Dokumentera-ändringsprocess
+- Välj repository: G1Squad/FunShop
+- Branch from: main
+- Branch name: SF-XX-XX-feature-name T.ex. SF-10-23-Dokumentera-ändringsprocess
 
 Öppna vscode och i terminalen kör:
 ```bash
@@ -78,12 +78,15 @@ git branch
 ```
 
 2. Gör kodändringen
+
 Gör nödvändiga kodändringar enligt Jira-ärendet.
 
 3. Testa koden
+
 Kör tester för att säkerställ att ändringen fungerar.
 
 4. Commita och pusha Koden
+
 Commita dina ändringar
 Se till att commit-meddelandet inkluderar Jira-ärendets ID:
 
@@ -98,18 +101,14 @@ git push origin SF-XX-XX-feature-name
 ```
 
 5. Skapa en Pull Request (PR)
+
 Gå till GitHub och tryck "Compare & pull request"
 
 Justera title & description
-Tryck "Create pull request"
-Tryck "Merge pull request"
-Tryck "Confirm merge"
+- Tryck "Create pull request"
+- Tryck "Merge pull request"
+- Tryck "Confirm merge"
 
 6. Done i Jira
+
 Markera ärendet som "Done" om allt fungerar.
-Sammanfattning av Workflow
-Jira: Skapa ärende → Länka till GitHub
-GitHub: Skapa branch → Implementera → Commit & push
-GitHub: Skapa Pull Request → Code review
-GitHub: Merge → CI/CD körs → Deploy
-7. Jira: Markera ärendet som "Done"
