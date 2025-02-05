@@ -89,7 +89,7 @@ Se till att commit-meddelandet inkluderar Jira-ärendets ID:
 
 ```bash
 git add .
-git commit -m "SF-XX-XX: Fixade buggen i checkout-flödet"
+git commit -m "SF-XX-XX: Fixade buggen..."
 ```
 
 Pusha till GitHub:
@@ -98,17 +98,14 @@ git push origin SF-XX-XX-feature-name
 ```
 
 5. Skapa en Pull Request (PR)
-Gå till GitHub och skapa en PR
-Välj SF-XX-XX-feature-name som source och main som target.
+Gå till GitHub och tryck "Compare & pull request"
 
-6. Granskning och Merging
-Granskarna lämnar feedback i GitHub PR.
-Eventuella ändringar görs och pushas.
-Merge PR till main branch.
+Justera title & description
+Tryck "Create pull request"
+Tryck "Merge pull request"
+Tryck "Confirm merge"
 
-Efter godkännande, slå ihop PR till main.
-
-7. Done i Jira
+6. Done i Jira
 Markera ärendet som "Done" om allt fungerar.
 Sammanfattning av Workflow
 Jira: Skapa ärende → Länka till GitHub
