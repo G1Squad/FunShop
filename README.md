@@ -7,8 +7,8 @@ Välkommen till Sebastians FunShop - din destination för roliga och unika produ
 1. Se till att du har Python 3.8 eller senare installerat
 2. Klona detta repository:
 ```bash
-git clone https://github.com/G1Squad/SebastiansFanShop.git
-cd SebastiansFanShop
+git clone https://github.com/G1Squad/FunShop.git
+cd FunShop
 ```
 
 ## Konfigurering
