@@ -1,5 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
-import barnum
 from datetime import datetime
 from flask_security import Security, SQLAlchemyUserDatastore, auth_required, hash_password
 from flask_security.models import fsqla_v3 as fsqla
