@@ -17,6 +17,7 @@ migrate = Migrate(app,db)
 app.register_blueprint(siteBluePrint)
 app.register_blueprint(productBluePrint)
 
+
 if __name__  == "__main__":
     with app.app_context():
         upgrade()
