@@ -12,6 +12,28 @@
 		e.stopPropagation();
 	});
 
+	// Hide cart list when empty
+function toggleCartList() {
+	if ($('.cart-list').children().length === 0) {
+			$('.cart-list').hide(); // Hide when empty
+	} else {
+			$('.cart-list').show(); // Show when it has items
+	}
+}
+
+// Run the function on page load to check initial state
+toggleCartList();
+
+// Toggle cart visibility on dropdown click
+$('.dropdown').on('click', function () {
+	$('.cart-list').show(); // Show even if empty when clicked
+});
+
+// Run function when an item is added or removed
+$(document).on('DOMSubtreeModified', '.cart-list', function () {
+	toggleCartList();
+});
+
 	/////////////////////////////////////////
 
 	// Products Slick

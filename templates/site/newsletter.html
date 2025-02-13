@@ -1,0 +1,54 @@
+{% extends "baseTemplate.html" %}
+
+{% block title %}Nyhetsbrev{% endblock %}
+
+
+{% block maincontent %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="newsletter-page">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center">NEWSLETTER</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="newsletter-benefits">
+                            <h3>Som prenumerant får du:</h3>
+                            <ul>
+                                <li><i class="fa fa-check"></i> Exklusiva erbjudanden varje vecka</li>
+                                <li><i class="fa fa-check"></i> Förhandsbokning av nya produkter</li>
+                                <li><i class="fa fa-check"></i> Specialpriser för medlemmar</li>
+                                <li><i class="fa fa-check"></i> Nyheter om kommande produkter</li>
+                            </ul>
+                        </div>
+
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+
+                        <form method="POST">
+                            {{ form.hidden_tag() }}
+                            <div class="form-group">
+                                {{ form.email(class="form-control", placeholder="Enter Your Email") }}
+                                {% if form.email.errors %}
+                                    {% for error in form.email.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="text-center mt-3">
+                                {{ form.submit(class="btn btn-primary") }}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,125 @@
+/* Newsletter Page Styles */
+.newsletter-page {
+    background: #fff;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.newsletter-page .card {
+    border: none;
+}
+
+.newsletter-page .card-header {
+    background: #D10024;
+    color: #FFF;
+    padding: 20px;
+    border: none;
+}
+
+.newsletter-page .card-header h2 {
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.newsletter-page .card-body {
+    padding: 30px;
+}
+
+.newsletter-page .form-control {
+    height: 40px;
+    padding: 0px 15px;
+    border: 1px solid #E4E7ED;
+    background-color: #FFF;
+    width: 100%;
+}
+
+.newsletter-page .form-control:focus {
+    border-color: #D10024;
+    box-shadow: none;
+}
+
+.newsletter-page .btn-primary {
+    background-color: #D10024;
+    color: #FFF;
+    border: none;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 0;
+}
+
+.newsletter-page .btn-primary:hover {
+    background-color: #15161D;
+}
+
+.newsletter-page .alert {
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.newsletter-page .alert-success {
+    background-color: #D10024;
+    border-color: #D10024;
+    color: #FFF;
+}
+
+.newsletter-page .text-danger {
+    color: #D10024;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+/* Lägg till dessa stilar i slutet av din befintliga newsletter.css */
+
+.newsletter-benefits {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.newsletter-benefits h3 {
+    color: #15161D;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.newsletter-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.newsletter-benefits li {
+    padding: 8px 0;
+    color: #2B2D42;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.newsletter-benefits li i {
+    color: #D10024;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.newsletter-benefits li:not(:last-child) {
+    border-bottom: 1px solid #E4E7ED;
+}
+
+/* Hover effekt på listans items */
+.newsletter-benefits li:hover {
+    background-color: #fff;
+    padding-left: 5px;
+    transition: all 0.3s;
+}
+
+/* Lägg till denna stil i newsletter.css */
+.newsletter strong {
+    color: #D10024;
+} 
