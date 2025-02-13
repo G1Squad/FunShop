@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Admin Panel{% endblock %}</title>
+    <style>
+        .admin-header {
+            background: #333;
+            color: white;
+            padding: 1rem;
+        }
+        .admin-footer {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .admin-nav {
+            padding: 1rem;
+            background: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <h1>Admin Dashboard</h1>
+        <nav class="admin-nav">
+            <a href="{{ url_for('admin.index') }}">Dashboard</a> |
+            <a href="{{ url_for('admin.products') }}">Products</a> |
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main style="padding: 2rem;">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="admin-footer">
+        <p>&copy; 2024 Admin Panel</p>
+    </footer>
+</body>
+</html> 
