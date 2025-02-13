@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">      
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock %} - Stefans Webshop</title>
+    <title>{% block title %}{% endblock %} - Sebastians Webshop</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" />
     <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/slick.css') }}" />
@@ -30,7 +29,12 @@
                     <li><a href="#"><i class="fa fa-map-marker"></i> Testgatan 122</a></li>
                 </ul>
                 <ul class="header-links pull-right">
-                    <partial name="_LoginPartial" />
+                    {% if current_user.is_authenticated %}
+                        <li><span style="color: red;">Welcome {{ current_user.email }}!</span></li>
+                        <li><a href="{{ url_for('security.logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('security.login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -68,7 +72,7 @@
                                 <a href="#">
                                     <i class="fa fa-heart-o"></i>
                                     <span>Your Wishlist</span>
-                                    <div class="qty"></div>
+                                    <div class="qty">0</div>
                                 </a>
                             </div>
                             <!-- /Wishlist -->
@@ -77,7 +81,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Your Cart</span>
-                                    <div class="qty"></div>
+                                    <div class="qty">0</div>
                                 </a>
                                 <div class="cart-dropdown">
                                     <div class="cart-list">
@@ -152,13 +156,18 @@
     <!-- /NAVIGATION -->
     <!-- SECTION -->
     <div class="section">
-        <!-- container -->
         <div class="container">
-
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             {% block maincontent %}{% endblock %}                 
- 
         </div>
-        <!-- /container -->
     </div>
     <!-- /SECTION -->
     <!-- NEWSLETTER -->
@@ -292,14 +301,16 @@
         <!-- /bottom footer -->
     </footer>
     <!-- /FOOTER -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script> 
     <!-- jQuery Plugins -->
     <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
-    <!-- <script src="{{ url_for('static',filename='js/slick.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/nouislider.min.js') }}"></script> -->
+    <script src="{{ url_for('static',filename='js/slick.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/nouislider.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/jquery.zoom.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/main.js') }}"></script>
     {% block scripts %}{% endblock %}                 
- 
 </body>
 </html>

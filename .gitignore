@@ -2,6 +2,7 @@
 venv/
 env/
 ENV/
+
 .env
 
 # Python
@@ -68,3 +69,4 @@ node_modules/
 
 # Compiled files
 *.pyc
+.env
