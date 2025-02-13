@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_security import Security, SQLAlchemyUserDatastore, auth_required, hash_password
 from flask_security.models import fsqla_v3 as fsqla
+from sqlalchemy.exc import IntegrityError
 
 db = SQLAlchemy()
 
@@ -36,8 +37,15 @@ class Product(db.Model):
     ReorderLevel = db.Column(db.Integer, unique=False, nullable=False)
     Discontinued = db.Column(db.Boolean, unique=False, nullable=False)
 
+# a new model for Newsletter
+class Newsletter(db.Model):
+    __tablename__ = 'newsletter'
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(255), unique=True, nullable=False)
+    date_added = db.Column(db.DateTime, default=datetime.utcnow)
 
-
+    def __repr__(self):
+        return f'<Newsletter {self.email}>'
 
 def seedData(app):
     app.security = Security(app, user_datastore)
